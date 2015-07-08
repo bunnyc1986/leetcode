@@ -8,10 +8,10 @@ public class TwoSum {
 
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for(int i=0; i<nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int a = nums[i];
             if (map.containsKey(target - a)) {
-                return new int[] {i, map.get(target - a)};
+                return new int[]{i, map.get(target - a)};
             }
             map.put(a, i);
         }
@@ -20,16 +20,14 @@ public class TwoSum {
 
     public int[] twoSum2(int[] sortedNums, int target) {
         int i = 0, j = sortedNums.length - 1;
-        while(i<j) {
+        while (i < j) {
             int sum = sortedNums[i] + sortedNums[j];
             if (sum < target) {
                 i++;
-            }
-            else if (sum > target) {
+            } else if (sum > target) {
                 j--;
-            }
-            else {
-                return new int[]{i,j};
+            } else {
+                return new int[]{i, j};
             }
 
         }
@@ -38,7 +36,7 @@ public class TwoSum {
 
     public static void main(String[] args) {
         TwoSum twoSum = new TwoSum();
-        int[] nums = new int[] {1,3,5,7,8,9,10,12,14,18};
+        int[] nums = new int[]{1, 3, 5, 7, 8, 9, 10, 12, 14, 18};
         int target = 20;
 
         int[] results = twoSum.twoSum(nums, target);

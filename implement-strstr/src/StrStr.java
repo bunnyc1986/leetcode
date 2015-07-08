@@ -4,8 +4,8 @@
 public class StrStr {
 
     public int strStr(String haystack, String needle) {
-        for(int i=0; i<=haystack.length() - needle.length();i++) {
-            String sub = haystack.substring(i, i+needle.length());
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            String sub = haystack.substring(i, i + needle.length());
             if (sub.equals(needle)) {
                 return i;
             }
@@ -15,7 +15,7 @@ public class StrStr {
 
     public static void main(String[] args) {
         StrStr strStr = new StrStr();
-        String haystack = "aaaba";
+        String haystack = "aaabacdsedsws";
         String needle = "ba";
         System.out.println(strStr.strStr(haystack, needle));
 
