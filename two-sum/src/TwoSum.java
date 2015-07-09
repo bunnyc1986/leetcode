@@ -11,7 +11,13 @@ public class TwoSum {
         for (int i = 0; i < nums.length; i++) {
             int a = nums[i];
             if (map.containsKey(target - a)) {
-                return new int[]{i, map.get(target - a)};
+                int index1 = i + 1;
+                int index2 = map.get(target - a) + 1;
+                if (index1 < index2) {
+                    return new int[]{index1, index2};
+                } else {
+                    return new int[]{index2, index1};
+                }
             }
             map.put(a, i);
         }
