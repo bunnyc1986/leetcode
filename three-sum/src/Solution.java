@@ -28,9 +28,9 @@ public class Solution {
                     while (j < k && nums[j] == nums[++j]) ;
                     while (j < k && nums[k] == nums[--k]) ;
                 } else if (nums[j] + nums[k] < target) {
-                    j++;
+                    while (j < k && nums[j] == nums[++j]) ;
                 } else {
-                    k--;
+                    while (j < k && nums[k] == nums[--k]) ;
                 }
             }
         }
