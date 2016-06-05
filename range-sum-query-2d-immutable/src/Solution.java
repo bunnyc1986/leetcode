@@ -1,5 +1,4 @@
 import org.junit.Test;
-import org.junit.experimental.max.MaxCore;
 
 import static org.junit.Assert.assertEquals;
 
