@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * https://leetcode.com/problems/kth-smallest-element-in-a-bst/
  */
@@ -14,20 +16,16 @@ public class Solution {
 
 
     public int kthSmallest(TreeNode root, int k) {
-        int leftCount = countChildren(root.left);
-        if (k <= leftCount) {
-            return kthSmallest(root.left, k);
-        } else if (k > leftCount + 1) {
-            return kthSmallest(root.right, k - 1 - leftCount);
+        int count = 0;
+        final Stack<TreeNode> stack = new Stack<>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            while(p != null)  {stack.push(p); p = p.left;}
+            p = stack.pop();
+            if (++count == k) return p.val;
+            p = p.right;
         }
-        return root.val;
-    }
-
-    private int countChildren(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + countChildren(root.left) + countChildren(root.right);
+        return -1;
     }
 
     public static void main(String[] args) {
